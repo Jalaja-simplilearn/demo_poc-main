@@ -1,0 +1,28 @@
+<!-- dynamic-options.component.html -->
+
+<div>
+  <h1>Dynamic Options Component</h1>
+
+  <div>
+    <input type="text" [ngModel]="query" (ngModelChange)="onQueryChange($event)" placeholder="Type your query here">
+  </div>
+  <button (click)="toggleWidget()">Toggle Widget Style</button>
+  <button (click)="sendData()">Send Data</button>
+
+  <div *ngIf="data && data.length > 0">
+    <h2>Data from API:</h2>
+    <select [(ngModel)]="selectedData">
+      <option *ngFor="let item of data" [ngValue]="item">{{item}}</option>
+    </select>
+  </div>
+
+  <div>
+    <h2>Calculate Discount:</h2>
+    <p>Price: 100, Discount: 20, Final Price: {{ calculateDiscount(100, 20) }}</p>
+  </div>
+
+  <div>
+    <h2>Dashboard Options:</h2>
+    <pre>{{ dashboardOptions | json }}</pre>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div ng-controller="DynamicOptionsCtrl">
+    <h1>Dynamic Options Component</h1>
+  
+    <div>
+      <input type="text" [formControl]="query" placeholder="Type your query here">
+    </div>
+    <button ng-click="toggleWidget()">Toggle Widget Style</button>
+    <button ng-click="sendData()">Send Data</button>
+    
+  
+    <div ng-if="data.length > 0">
+      <h2>Data from API:</h2>
+      <select ng-model="selectedData" ng-options="item for item in data"></select>
+    </div>
+  
+    <div>
+      <h2>Calculate Discount:</h2>
+      <p>Price: 100, Discount: 20, Final Price: {{ calculateDiscount(100, 20) }}</p>
+    </div>
+  
+    <div>
+      <h2>Dashboard Options:</h2>
+      <pre>{{ dashboardOptions | json }}</pre>
+    </div>
+  </div>
